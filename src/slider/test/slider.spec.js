@@ -49,7 +49,7 @@ describe('slider directive', function() {
         });
 
         it('should have no transition as default', function() {
-            expect(getBar().css('transition')).toBe('none');
+            expect(getBar().css('transition-property')).toBe('none');
         });
 
     });

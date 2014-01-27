@@ -61,7 +61,7 @@ angular.module('ui.bootstrap.slider', ['ui.bootstrap.position'])
         };
 
         scope.setValid = function(value) {
-          var v = parseInt(value,10);
+          var v = parseInt(value, 10);
           ngModel.$setValidity('slider', (scope.max >= v) && (v >= scope.min));
           return v;
         };
