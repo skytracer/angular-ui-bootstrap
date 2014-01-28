@@ -19,12 +19,10 @@ angular.module('ui.bootstrap.slider', ['ui.bootstrap.position'])
       },
       templateUrl: 'template/slider/slider.html',
       link: function(scope, element, attrs, ngModel) {
-
-        angular.forEach(sliderConfig, function(value, key) {
-          if(key !== 'ngModel') {
-            scope[key] = angular.isDefined(attrs[key]) ? scope.$parent.$eval(attrs[key]) : value;
-          }
-        });
+        scope.max = angular.isDefined(attrs.max) ? scope.$parent.$eval(attrs.max) : (sliderConfig.max || 100);
+        scope.min = angular.isDefined(attrs.min) ? scope.$parent.$eval(attrs.min) : (sliderConfig.min || 0);
+        scope.transition = scope.transition || sliderConfig['transition'];
+        scope.updateOnDrag = angular.isDefined(attrs.updateOnDrag) ? scope.$parent.$eval(attrs.updateOnDrag) : (sliderConfig['updateOnDrag'] || false);
 
         scope.btn = element.find('button');
         scope.bar = element.children().eq(1).children().eq(0);
