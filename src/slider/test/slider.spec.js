@@ -14,7 +14,7 @@ describe('slider directive', function() {
         };
 
         getBtn = function() {
-            return sliderelement.find('button');
+            return sliderelement.find('a');
         };
     }));
 

@@ -24,7 +24,7 @@ angular.module('ui.bootstrap.slider', ['ui.bootstrap.position'])
         scope.transition = scope.transition || sliderConfig['transition'];
         scope.updateOnDrag = angular.isDefined(attrs.updateOnDrag) ? scope.$parent.$eval(attrs.updateOnDrag) : (sliderConfig['updateOnDrag'] || false);
 
-        scope.btn = element.find('button');
+        scope.btn = element.find('a');
         scope.bar = element.children().eq(1).children().eq(0);
         scope.range = scope.max - scope.min;
 
@@ -78,7 +78,7 @@ angular.module('ui.bootstrap.slider', ['ui.bootstrap.position'])
         };
 
         scope.redraw = function() {
-          scope.btn.css({'display': ngModel.$isEmpty(ngModel.$viewValue) ? 'none' : 'block'});
+          scope.btn.css({'display': ngModel.$isEmpty(ngModel.$viewValue) ? 'none' : 'inline-block'});
           scope.btn.css({'left': scope.percent + '%'});
           scope.bar.css({'width': scope.percent + '%'});
         };
